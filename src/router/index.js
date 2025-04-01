@@ -6,6 +6,7 @@ import Login from '../views/auth/Login.vue';
 import Blog from '../views/web/Blog.vue';
 import Perfil from '../views/admin/perfil/Perfil.vue';
 import Usuario from '../views/admin/user/Usuario.vue';
+import AppLayout from '@/layout/AppLayout.vue';
 
 const routes = [
     { path: "/", component: Inicio },
@@ -19,17 +20,24 @@ const routes = [
         meta: {redirectIfAuth: true}
     },
     {
-        path: '/admin/perfil',
-        component: Perfil,
-        name: 'MiPerfil',
-        meta: {requireAuth: true}
-    },
-    {
-        path: '/admin/usuario',
-        component: Usuario,
-        name: 'Usuario',
-        meta: {requireAuth: true}
+        path: '/admin',
+        component: AppLayout,
+        children: [
+            {
+                path: 'perfil',
+                component: Perfil,
+                name: 'MiPerfil',
+                meta: {requireAuth: true}
+            },
+            {
+                path: 'usuario',
+                component: Usuario,
+                name: 'Usuario',
+                meta: {requireAuth: true}
+            }
+        ]
     }
+    
 ];
 
 const router = createRouter({
