@@ -15,7 +15,9 @@ const model = ref([
         label: 'Gestión Seguridad',
         items: [
             { label: 'Usuarios', icon: 'pi pi-fw pi-id-card', to: '/admin/usuario' },
-            { label: 'Roles', icon: 'pi pi-fw pi-check-square', to: '/admin/role' }
+            { label: 'Roles', icon: 'pi pi-fw pi-check-square', to: '/admin/role' },
+            { label: 'Datos Personales', icon: 'pi pi-fw pi-check-square', to: '/admin/persona' }
+
            
         ]
     },
