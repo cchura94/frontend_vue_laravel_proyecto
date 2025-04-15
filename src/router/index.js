@@ -11,6 +11,8 @@ import LayoutSitio from '../components/layoutsitio/LayoutSitio.vue';
 import Producto from '../views/web/Producto.vue';
 import Persona from '../views/admin/persona/Persona.vue';
 import Categoria from '../views/admin/inventario/categoria/Categoria.vue'
+import Inventario from '../views/admin/inventario/Inventario.vue';
+import GestionProducto from '../views/admin/inventario/producto/Producto.vue';
 
 const routes = [
     {
@@ -53,10 +55,23 @@ const routes = [
                 meta: {requireAuth: true}
             },
             {
-                path: 'categoria',
-                component: Categoria,
-                name: 'Categoria',
-                meta: {requireAuth: true}
+                path: 'inventario',
+                component: Inventario,
+                meta: {requireAuth: true},
+                children: [
+                    {
+                        path: 'categoria',
+                        component: Categoria,
+                        name: 'Categoria',
+                        meta: {requireAuth: true}
+                    },
+                    {
+                        path: 'producto',
+                        component: GestionProducto,
+                        name: 'GestionProducto',
+                        meta: {requireAuth: true}
+                    }
+                ]
             }
         ]
     }
