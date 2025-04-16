@@ -1,8 +1,8 @@
 import Api from './api.service'
 
 export default {
-    funListar: function(){
-        return Api().get(`/producto`);
+    funListar: function(page=1, limit=5, q=''){
+        return Api().get(`/producto?page=${page}&limit=${limit}&q=${q}`);
     },
     funGuardar: (datos) => {
         return Api().post(`/producto`, datos);
@@ -15,5 +15,8 @@ export default {
     },
     funEliminar: (id) => {
         return Api().delete(`/producto/${id}`);
-    }
+    },
+    funSubirImagen: (id, formdata) => {
+        return Api().post(`/producto/${id}/subir-imagen`, formdata);
+    },
 }
