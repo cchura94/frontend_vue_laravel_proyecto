@@ -44,12 +44,12 @@ const model = ref([
             {
                 label: 'Pedidos',
                 icon: 'pi pi-fw pi-table',
-                to: '/admin/categoria'
+                to: '/admin/pedido'
             },
             {
                 label: 'Nuevo Pedido',
                 icon: 'pi pi-fw pi-box',
-                to: '/admin/producto'
+                to: '/admin/pedido/nuevo'
             },
             {
                 label: 'Clientes',
