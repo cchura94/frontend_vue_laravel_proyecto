@@ -8,6 +8,8 @@
     
             <template #end>
                 <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Importar" customUpload chooseLabel="Importar" class="mr-2" auto :chooseButtonProps="{ severity: 'secondary' }" />
+                <Button label="ExportarExcel" icon="pi pi-upload" severity="secondary" @click="exportarExcel" />
+
                 <Button label="Exportar" icon="pi pi-upload" severity="secondary" @click="exportCSV($event)" />
             </template>
         </Toolbar>
@@ -179,6 +181,21 @@ const abrirNuevoProducto = () => {
 const exportCSV = () => {
     dt.value.exportCSV();
 };
+const exportarExcel = async () => {
+    const response =await productoService.descargarExcel();
+
+    const blob = new Blob([response.data]);
+
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `productos.xlsx`);
+        document.body.appendChild(link);
+        link.click();
+
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+}
 
 const editProduct = (prod) => {
     producto.value = {...prod};

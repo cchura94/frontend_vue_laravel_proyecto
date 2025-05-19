@@ -5,7 +5,7 @@ const dev = true;
 if(dev){
     BASE_URL = "http://127.0.0.1:8000";
 }else{
-    BASE_URL = "https://miempresa.com";
+    BASE_URL = "https://ventaslaravue.blumbit.net/back/public";
 }
 
 export const BASE_URL_API = `${BASE_URL}/api`;
